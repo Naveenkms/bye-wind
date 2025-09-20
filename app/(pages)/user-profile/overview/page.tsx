@@ -3,7 +3,9 @@ export default function OverviewPage() {
     <main className="p-6">
       <h1 className="text-2xl font-bold mb-4">User Profile Overview</h1>
       <section className="bg-white rounded shadow p-4">
-        <p className="text-gray-600">This is the default template for the User Profile Overview page.</p>
+        <p className="text-gray-600">
+          This is the default template for the User Profile Overview page.
+        </p>
       </section>
     </main>
   );
