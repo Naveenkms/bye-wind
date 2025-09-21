@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { RightInclinedPipe } from "./right-inclined-pipe";
 
 function Breadcrumb({ ...props }: React.ComponentProps<"nav">) {

@@ -6,19 +6,20 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarTrigger as PrimarySidebarTrigger } from "@/components/ui/sidebar";
 import { FavoriteButton } from "@/components/favorite-button";
 import { DarkModeToggle } from "@/components/dark-mode-toggle";
 import { ActivitiesButton } from "./activities-button";
 import { NotificationButton } from "./notifications-button";
 import SearchButton from "./search-button";
+import { SecondarySidebarTrigger } from "@/app/_components/secondary-sidebar";
 
 export function Header({ title }: { title?: string }) {
   return (
     <header className="flex shrink-0 items-center gap-2 transition-[width,height] ease-linear py-5 px-7 justify-between border-b h-[4.25rem]">
       <div className="flex items-center gap-2">
         <div className="flex gap-2 items-center">
-          <SidebarTrigger />
+          <PrimarySidebarTrigger />
           <FavoriteButton />
         </div>
         <div className="py-1 px-2">
@@ -41,7 +42,7 @@ export function Header({ title }: { title?: string }) {
           <DarkModeToggle />
           <ActivitiesButton />
           <NotificationButton />
-          <SidebarTrigger />
+          <SecondarySidebarTrigger />
         </div>
       </div>
     </header>
