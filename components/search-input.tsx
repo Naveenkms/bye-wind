@@ -7,9 +7,9 @@ export function SearchInput({
   ...props
 }: React.ComponentProps<typeof Input>) {
   return (
-    <div className={cn("w-40 h-7 px-2 rounded-lg border flex items-center gap-1 border-input overflow-hidden", className)}>
-        <Lens/>
-      <Input placeholder="Search" className="h-full border-none ring-0 outline-0 p-0 focus-visible:ring-0" {...props} />
+    <div className={cn("w-40 h-7 px-2 rounded-lg border flex items-center gap-1 border-input overflow-hidden dark:bg-background", className)}>
+        <Lens className="dark:stroke-muted-foreground "/>
+      <Input placeholder="Search" className="h-full border-none ring-0 outline-0 p-0 focus-visible:ring-0 dark:bg-background" {...props} />
     </div>
   );
 }

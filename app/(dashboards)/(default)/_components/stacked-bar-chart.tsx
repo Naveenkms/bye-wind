@@ -40,7 +40,7 @@ const chartConfig = {
 
 export function StackedBarChart() {
   return (
-    <Card className="flex-1 @3xl/main:flex-1/2 gap-4">
+    <Card className="flex-1 @3xl/main:flex-1/2 gap-4 dark:stroke-accent">
       <CardHeader>
         <CardTitle>Projections vs Actuals</CardTitle>
       </CardHeader>

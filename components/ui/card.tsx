@@ -8,9 +8,9 @@ const cardVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-card text-card-foreground",
-        blue: "bg-primary-blue",
-        purple: "bg-primary-purple",
+        default: "bg-card text-card-foreground  dark:stroke-foreground",
+        blue: "bg-primary-blue dark:text-primary",
+        purple: "bg-primary-purple dark:text-primary",
       },
     },
     defaultVariants: {

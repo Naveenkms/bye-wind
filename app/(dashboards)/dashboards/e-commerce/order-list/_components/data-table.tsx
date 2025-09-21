@@ -72,8 +72,8 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      <div className="mb-4 p-2 h-11 flex items-center justify-between bg-primary-light dark:bg-background/5 rounded-lg">
-        <div className="flex items-center gap-2">
+      <div className="mb-4 p-2 h-11 flex items-center justify-between bg-primary-light dark:bg-foreground/5 rounded-lg">
+        <div className="flex items-center gap-2 dark:stroke-foreground">
           <Button variant="ghost" size="icon">
             <PlusIcon className="size-5" />
           </Button>
@@ -130,7 +130,7 @@ export function DataTable<TData, TValue>({
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
-                  className="border-b border-foreground/5 hover:bg-primary-light"
+                  className="border-b border-foreground/5 hover:bg-primary-light dark:hover:bg-foreground/5"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell
@@ -167,7 +167,7 @@ export function DataTable<TData, TValue>({
                 onClick={() => table.previousPage()}
                 disabled={!table.getCanPreviousPage()}
               >
-                <ChevronLeft className="size-5" />
+                <ChevronLeft className="size-5 dark:stroke-foreground" />
               </Button>{" "}
             </PaginationItem>
             <PaginationItem>
@@ -188,7 +188,7 @@ export function DataTable<TData, TValue>({
                 onClick={() => table.nextPage()}
                 disabled={!table.getCanNextPage()}
               >
-                <ChevronRight className="size-5" />
+                <ChevronRight className="size-5 dark:stroke-foreground" />
               </Button>{" "}
             </PaginationItem>
           </PaginationContent>

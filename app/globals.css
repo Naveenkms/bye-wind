@@ -64,18 +64,18 @@
   --primary-blue: #e3f5ff;
   --primary-purple: #e5ecf6;
   --secondary-cyan: #a8c5da;
-  --primary-light: #F7F9FB;
+  --primary-light: #f7f9fb;
   --chart-1: #a8c5da;
   --chart-2: #a5d1da80;
   --chart-3: oklch(0.23 0 0);
   --chart-4: #baedbd;
   --chart-5: #95a4fc;
   --chart-6: #b1e3ff;
-  --in-progress: #8A8CD9;
-  --complete: #4AA785;
-  --pending: #59A8D4;
-  --approved: #FFC555;
-  --rejected: #1C1C1C66;
+  --in-progress: #8a8cd9;
+  --complete: #4aa785;
+  --pending: #59a8d4;
+  --approved: #ffc555;
+  --rejected: #1c1c1c66;
 
   /* unset tokens */
   --secondary: oklch(0.97 0 0);
@@ -99,7 +99,7 @@
 .dark {
   --background: oklch(0.23 0 0);
   --foreground: oklch(1 0 0);
-  --card: oklch(0.205 0 0);
+  --card: oklch(1 0 0 / 10%);
   --card-foreground: oklch(1 0 0);
   --popover: oklch(0.23 0 0);
   --popover-foreground: oklch(0.985 0 0);
@@ -141,4 +141,5 @@
   body {
     @apply bg-background text-foreground;
   }
+
 }

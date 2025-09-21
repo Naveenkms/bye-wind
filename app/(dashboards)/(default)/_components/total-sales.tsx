@@ -88,28 +88,28 @@ export function TotalSales() {
           </PieChart>
         </ChartContainer>
         <div className="space-y-3 text-xs w-full">
-          <div className="h-[1.375rem] flex items-center justify-between">
+          <div className="h-[1.375rem] flex items-center justify-center gap-4 md:justify-between">
             <div className="pl-1 flex items-center gap-[5px]">
               <div className="bg-foreground size-1.5 rounded-full" />
               <p>Direct</p>
             </div>
             <p>$300.56</p>
           </div>
-          <div className="h-[1.375rem] flex items-center justify-between">
+          <div className="h-[1.375rem] flex items-center justify-center gap-4 md:justify-between">
             <div className="pl-1 flex items-center gap-[5px]">
               <div className="bg-[var(--chart-4)] size-1.5 rounded-full" />
               <p>Affilliate</p>
             </div>
             <p>$135.18</p>
           </div>
-          <div className="h-[1.375rem] flex items-center justify-between">
+          <div className="h-[1.375rem] flex items-center justify-center gap-4 md:justify-between">
             <div className="pl-1 flex items-center gap-[5px]">
               <div className="bg-[var(--chart-5)] size-1.5 rounded-full" />
               <p>Sponsored</p>
             </div>
             <p>$154.02</p>
           </div>
-          <div className="h-[1.375rem] flex items-center justify-between">
+          <div className="h-[1.375rem] flex items-center justify-center gap-4 md:justify-between">
             <div className="pl-1 flex items-center gap-[5px]">
               <div className="bg-[var(--chart-6)] size-1.5 rounded-full" />
               <p>E-mail</p>
