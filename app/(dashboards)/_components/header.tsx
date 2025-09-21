@@ -11,6 +11,7 @@ import { FavoriteButton } from "@/components/favorite-button";
 import { DarkModeToggle } from "@/components/dark-mode-toggle";
 import { ActivitiesButton } from "./activities-button";
 import { NotificationButton } from "./notifications-button";
+import SearchButton from "./search-button";
 
 export function Header({ title }: { title?: string }) {
   return (
@@ -35,7 +36,7 @@ export function Header({ title }: { title?: string }) {
         </div>
       </div>
       <div className="flex items-center gap-5">
-        search button
+        <SearchButton />
         <div className="flex gap-2">
           <DarkModeToggle />
           <ActivitiesButton />
