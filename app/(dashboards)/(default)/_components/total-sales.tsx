@@ -94,7 +94,7 @@ export function TotalSales() {
             />
           </RadialBarChart>
         </ChartContainer>
-        <div className="flex-1 space-y-3 text-xs w-full">
+        <div className="space-y-3 text-xs w-full">
           <div className="h-[1.375rem] flex items-center justify-between">
             <div className="pl-1 flex items-center gap-[5px]">
               <div className="bg-foreground size-1.5 rounded-full" />
