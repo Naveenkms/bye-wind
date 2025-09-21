@@ -1,38 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bye-Wind
 
-## Getting Started
+A modern, production-ready Next.js dashboard template featuring TypeScript, Radix UI, Tailwind CSS, Playwright, and more.
 
-First, run the development server:
+## �️ Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **React 19** — UI library
+- **Next.js 15** — App framework
+- **shadcn/ui** — Accessible React components
+- **Tailwind CSS** — Utility-first CSS framework
+- **date-fns** — Date utility library
+- **TanStack Table** — Headless table library
+- **Recharts** — Charting library
+- **next-themes** — Dark mode and theme management
+
+## �🚀 Deployed Link
+
+[Live Demo]https://bye-wind-two.vercel.app
+
+## 📦 Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Naveenkms/bye-wind.git
+   cd bye-wind
+   ```
+2. **Install dependencies:**
+   ```bash
+   pnpm install
+   # or
+   npm install
+   # or
+   yarn install
+   ```
+3. **Run the development server:**
+   ```bash
+   pnpm dev
+   # or
+   npm run dev
+   # or
+   yarn dev
+   ```
+   The app will be available at [http://localhost:3000](http://localhost:3000).
+
+## 🧪 Testing
+
+- **Unit & Component Tests:**
+  ```bash
+  pnpm test
+  ```
+- **End-to-End Tests:**
+  ```bash
+  pnpm test:e2e
+  ```
+
+### CI Workflow for E2E Tests
+
+End-to-end tests are run automatically in CI using Playwright. The workflow includes:
+
+- Install dependencies
+- Build the application
+- Run Playwright E2E tests
+
+Example (GitHub Actions):
+
+```yaml
+jobs:
+   e2e:
+      runs-on: ubuntu-latest
+      steps:
+         - uses: actions/checkout@v4
+         - uses: pnpm/action-setup@v2
+            with:
+               version: 8
+         - run: pnpm install
+         - run: pnpm build
+         - run: pnpm test:e2e
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📁 Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `app/` — Routing, layouts, pages, and page wise components
+- `components/` — Reusable UI components
+- `hooks/` — Custom React hooks
+- `lib/` — Shared utilities
+- `public/` — Static assets
+- `tests/` — Playwright E2E tests
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Naveenkms/bye-wind?utm_source=oss&utm_medium=github&utm_campaign=Naveenkms%2Fbye-wind&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
+> Built with ❤️ by [Naveenkms](https://github.com/Naveenkms)
