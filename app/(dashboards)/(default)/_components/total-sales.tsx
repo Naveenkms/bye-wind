@@ -8,8 +8,8 @@ import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-//   ChartLegend,
-//   ChartLegendContent,
+  //   ChartLegend,
+  //   ChartLegendContent,
 } from "@/components/ui/chart";
 
 export const description = "A radial chart with stacked sections";
@@ -35,7 +35,7 @@ export function TotalSales() {
       <CardHeader>
         <CardTitle>Total Sales</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="gap-4 flex-col">
         <ChartContainer
           config={chartConfig}
           className="mx-auto aspect-square w-full max-w-[250px]"
@@ -94,6 +94,36 @@ export function TotalSales() {
             />
           </RadialBarChart>
         </ChartContainer>
+        <div className="flex-1 space-y-3 text-xs w-full">
+          <div className="h-[1.375rem] flex items-center justify-between">
+            <div className="pl-1 flex items-center gap-[5px]">
+              <div className="bg-foreground size-1.5 rounded-full" />
+              <p>Direct</p>
+            </div>
+            <p>$300.56</p>
+          </div>
+          <div className="h-[1.375rem] flex items-center justify-between">
+            <div className="pl-1 flex items-center gap-[5px]">
+              <div className="bg-[var(--chart-4)] size-1.5 rounded-full" />
+              <p>Affilliate</p>
+            </div>
+            <p>$135.18</p>
+          </div>
+          <div className="h-[1.375rem] flex items-center justify-between">
+            <div className="pl-1 flex items-center gap-[5px]">
+              <div className="bg-[var(--chart-5)] size-1.5 rounded-full" />
+              <p>Sponsored</p>
+            </div>
+            <p>$154.02</p>
+          </div>
+           <div className="h-[1.375rem] flex items-center justify-between">
+            <div className="pl-1 flex items-center gap-[5px]">
+              <div className="bg-[var(--chart-6)] size-1.5 rounded-full" />
+              <p>E-mail</p>
+            </div>
+            <p>$48.96</p>
+          </div>
+        </div>
       </CardContent>
     </Card>
   );

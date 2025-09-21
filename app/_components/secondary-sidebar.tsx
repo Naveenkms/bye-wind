@@ -44,7 +44,7 @@ export function SecondarySidebar({
       // side="right"
       className={cn(
         "sticky top-0 h-svh border-l transition-all duration-300 ease-in-out w-[17.5rem] hidden",
-        isOpen ? "lg:hidden" : "hidden"
+        isOpen ? "lg:flex" : "hidden"
       )}
       {...props}
     >
