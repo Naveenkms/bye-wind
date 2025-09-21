@@ -44,7 +44,7 @@ const data = [
 
 export function TopSellingProducts() {
   return (
-    <Card className="gap-1">
+    <Card className="col-span-2 @3xl/main:col-span-3 gap-1">
       <CardHeader>
         <CardTitle>Top Selling Products</CardTitle>
       </CardHeader>

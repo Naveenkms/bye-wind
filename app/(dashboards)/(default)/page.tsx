@@ -11,9 +11,9 @@ export default function DefaultPage() {
   return (
     <>
       <Header title="Default" />
-      <div className="flex flex-1 flex-col gap-4 p-7">
+      <div className="@container/main flex flex-1 flex-col gap-4 p-7">
         <PageTitle title="eCommerce" />
-        <div className="grid auto-rows-min gap-7 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-y-7 auto-rows-min @3xl/main:gap-7 @3xl/main:grid-cols-4">
           <MetricsSection />
           <StackedBarChart/>
           <RevenueChart/>
@@ -21,7 +21,6 @@ export default function DefaultPage() {
           <TopSellingProducts />
           <TotalSales />
         </div>
-        <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min" />
       </div>
     </>
   );

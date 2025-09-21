@@ -40,7 +40,7 @@ const chartConfig = {
 
 export function StackedBarChart() {
   return (
-    <Card className="gap-4">
+    <Card className="@3xl/main:col-span-2 gap-4">
       <CardHeader>
         <CardTitle>Projections vs Actuals</CardTitle>
       </CardHeader>

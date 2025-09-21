@@ -24,7 +24,7 @@ const data = [
 
 export function RevenueByLocation() {
   return (
-    <Card className="gap-4">
+    <Card className="col-span-2 gap-4">
       <CardHeader>
         <CardTitle>Revenue by Location</CardTitle>
       </CardHeader>
