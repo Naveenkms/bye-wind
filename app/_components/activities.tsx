@@ -55,7 +55,7 @@ function Activities() {
               <ActivityHeader>
                 You have a bug that needs to be fixed.
               </ActivityHeader>
-              <ActivityDescription>sds</ActivityDescription>
+              <ActivityDescription>Just now</ActivityDescription>
             </ActivityContent>
           </Activity>
         ))}

@@ -31,7 +31,16 @@ export function NavFavoritesAndRecentsTab() {
         </SidebarMenu>
       </TabsContent>
       <TabsContent value="recently" className="px-2 pb-3">
-        pending ui
+        <SidebarMenu className=" text-sm space-y-1">
+          <SidebarMenuItem className="h-[1.75rem] flex items-center gap-[9px]">
+            <div className="size-1.5 bg-muted-foreground rounded-full"></div>
+            <div>History</div>
+          </SidebarMenuItem>
+          <SidebarMenuItem className="h-[1.75rem] flex items-center gap-[9px]">
+            <div className="size-1.5 bg-muted-foreground rounded-full"></div>
+            <div>Orders</div>
+          </SidebarMenuItem>
+        </SidebarMenu>{" "}
       </TabsContent>
     </Tabs>
   );
