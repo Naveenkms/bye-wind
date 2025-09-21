@@ -33,7 +33,7 @@ const chartConfig = {
 
 export function RevenueChart() {
   return (
-    <Card className="col-span-2 @3xl/main:col-span-3 gap-4">
+    <Card className="flex-1 @3xl/main:flex-3/4 gap-4">
       <CardHeader>
         <CardTitle>Revenue</CardTitle>
       </CardHeader>

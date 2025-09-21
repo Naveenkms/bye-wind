@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${inter.className} antialiased `}>
+      <body className={`${inter.variable} ${inter.className} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -35,7 +35,7 @@ export default function RootLayout({
           <PrimarySidebarProvider>
             <SecondarySidebarProvider>
               <PrimarySidebar />
-              <main className="w-full flex-1 flex flex-col">{children}</main>
+              <main className="flex-1 flex flex-col">{children}</main>
               <SecondarySidebar />
             </SecondarySidebarProvider>
           </PrimarySidebarProvider>

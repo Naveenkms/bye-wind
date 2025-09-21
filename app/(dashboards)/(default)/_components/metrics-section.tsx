@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export function MetricsSection() {
   return (
-    <div className="grid auto-rows-max @xs/main:col-span-2 @xs/main:grid-cols-2 @3xl/main:col-span-2 gap-7">
+    <div className="flex-1 @3xl/main:flex-1/2 grid grid-cols-2 gap-7">
       <Card variant="blue">
         <CardHeader>
           <CardTitle>Customers</CardTitle>

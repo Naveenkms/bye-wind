@@ -31,7 +31,7 @@ export function TotalSales() {
   const totalVisitors = chartData[0].desktop + chartData[0].mobile;
 
   return (
-    <Card className="gap-4">
+    <Card className="gap-4 flex-1 @3xl/main:flex-1/4">
       <CardHeader>
         <CardTitle>Total Sales</CardTitle>
       </CardHeader>
