@@ -44,31 +44,55 @@ const data = [
 
 export function TopSellingProducts() {
   return (
-    <Card className="gap-1">
+    <Card className="flex-1 @3xl/main:flex-3/4 gap-1">
       <CardHeader>
         <CardTitle>Top Selling Products</CardTitle>
       </CardHeader>
       <CardContent>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[100px]">Name</TableHead>
-              <TableHead>Price</TableHead>
-              <TableHead>Quantity</TableHead>
-              <TableHead className="text-right">Amount</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {data.map((product) => (
-              <TableRow key={product.name}>
-                <TableCell className="font-medium">{product.name}</TableCell>
-                <TableCell>{product.price}</TableCell>
-                <TableCell>{product.quantity}</TableCell>
-                <TableCell className="text-right">{product.amount}</TableCell>
+        <div className="max-h-[16.5rem] overflow-auto w-full">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-[36.5%]">Name</TableHead>
+                <TableHead className="w-[21.2%]">Price</TableHead>
+                <TableHead className="w-[21.2%]">Quantity</TableHead>
+                <TableHead className="w-[21.2%]">Amount</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody>
+              {data.map((product) => (
+                <TableRow key={product.name}>
+                  <TableCell className="w-[36.5%]">{product.name}</TableCell>
+                  <TableCell className="w-[21.2%]">{product.price}</TableCell>
+                  <TableCell className="w-[21.2%]">
+                    {product.quantity}
+                  </TableCell>
+                  <TableCell className="w-[21.2%]">{product.amount}</TableCell>
+                </TableRow>
+              ))}
+              {data.map((product) => (
+                <TableRow key={product.name}>
+                  <TableCell className="w-[36.5%]">{product.name}</TableCell>
+                  <TableCell className="w-[21.2%]">{product.price}</TableCell>
+                  <TableCell className="w-[21.2%]">
+                    {product.quantity}
+                  </TableCell>
+                  <TableCell className="w-[21.2%]">{product.amount}</TableCell>
+                </TableRow>
+              ))}
+              {data.map((product) => (
+                <TableRow key={product.name}>
+                  <TableCell className="w-[36.5%]">{product.name}</TableCell>
+                  <TableCell className="w-[21.2%]">{product.price}</TableCell>
+                  <TableCell className="w-[21.2%]">
+                    {product.quantity}
+                  </TableCell>
+                  <TableCell className="w-[21.2%]">{product.amount}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </CardContent>
     </Card>
   );

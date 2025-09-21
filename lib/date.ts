@@ -1,6 +1,5 @@
 import {
   format,
-  formatDistanceToNow,
   isToday,
   isYesterday,
   differenceInMinutes,
@@ -49,11 +48,11 @@ export const formatRelativeDate = (date: Date | string | number): string => {
 
   if (daysDiff < 365) {
     // This year: "Dec 25, 11:59 AM"
-    return format(inputDate, "MMM d, h:mm a");
+    return format(inputDate, "MMM d");
   }
 
   // Older than a year: "Dec 25, 2022, 11:59 AM"
-  return format(inputDate, "MMM d, yyyy, h:mm a");
+  return format(inputDate, "MMM d, yyyy");
 };
 
 // // Usage examples

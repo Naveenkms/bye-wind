@@ -6,6 +6,7 @@ export function CircularPie(props: React.SVGProps<SVGSVGElement>) {
       height="20"
       fill="none"
       viewBox="0 0 20 20"
+      className="text-yellow-400"
       {...props}
     >
       <path

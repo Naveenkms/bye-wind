@@ -11,17 +11,22 @@ export default function DefaultPage() {
   return (
     <>
       <Header title="Default" />
-      <div className="flex flex-1 flex-col gap-4 p-7">
+      <div className="@container/main flex flex-1 flex-col gap-4 p-7">
         <PageTitle title="eCommerce" />
-        <div className="grid auto-rows-min gap-7 md:grid-cols-2">
-          <MetricsSection />
-          <StackedBarChart/>
-          <RevenueChart/>
-          <RevenueByLocation />
-          <TopSellingProducts />
-          <TotalSales />
+        <div className="flex flex-col gap-7">
+          <div className="flex flex-col gap-7 @3xl/main:flex-row">
+            <MetricsSection />
+            <StackedBarChart />
+          </div>
+          <div className="flex flex-col gap-7 @3xl/main:flex-row">
+            <RevenueChart />
+            <RevenueByLocation />
+          </div>
+          <div className="flex flex-col gap-7 @3xl/main:flex-row">
+            <TopSellingProducts />
+            <TotalSales />
+          </div>
         </div>
-        <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min" />
       </div>
     </>
   );

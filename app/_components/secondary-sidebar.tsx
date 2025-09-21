@@ -4,10 +4,7 @@ import type * as React from "react";
 import { Button } from "@/components/ui/button";
 import { useSecondarySidebar } from "./secondary-sidebar-provider";
 import { PanelLeftIcon } from "@/components/icons/panel-left-icon";
-import {
-  Sidebar,
-  SidebarContent,
-} from "@/components/ui/sidebar";
+import { Sidebar, SidebarContent } from "@/components/ui/sidebar";
 import { cn } from "@/lib/cn";
 import { Notifications } from "./notifications";
 import { Activities } from "./activities";
@@ -44,13 +41,14 @@ export function SecondarySidebar({
   return (
     <Sidebar
       collapsible="none"
+      // side="right"
       className={cn(
-        "sticky top-0 h-svh border-l transition-all duration-300 ease-in-out p-5 w-[17.5rem]",
+        "sticky top-0 h-svh border-l transition-all duration-300 ease-in-out w-[17.5rem] hidden",
         isOpen ? "lg:flex" : "hidden"
       )}
       {...props}
     >
-      <SidebarContent>
+      <SidebarContent className="p-5">
         <Notifications />
         <Activities />
         <Contacts />

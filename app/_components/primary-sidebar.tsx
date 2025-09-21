@@ -34,8 +34,8 @@ const data = {
       icon: Bag,
       items: [
         {
-          title: "History",
-          url: "#",
+          title: "Orders",
+          url: "/dashboards/e-commerce/order-list",
         },
         {
           title: "Starred",
@@ -102,7 +102,7 @@ const data = {
 
 export function PrimarySidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="offcanvas" {...props}>
+    <Sidebar collapsible="offcanvas" className=" dark:stroke-foreground!" {...props}>
       <SidebarHeader className="px-4 pb-4 pt-5 mb-4">
         <NavTitle />
       </SidebarHeader>

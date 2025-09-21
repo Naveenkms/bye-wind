@@ -5,7 +5,7 @@ export default function SearchButton() {
   return (
     <Button
       variant="ghost"
-      className="rounded-lg bg-accent px-2 py-1 justify-between h-7 gap-2 w-[10rem] text-muted-foreground hover:text-muted-foreground"
+      className="rounded-lg bg-accent dark:stroke-foreground/20 px-2 py-1 justify-between h-7 gap-2 w-[10rem] text-muted-foreground hover:text-muted-foreground"
     >
       <span className="flex items-center gap-1">
         <SearchIcon />

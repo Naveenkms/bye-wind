@@ -16,7 +16,7 @@ import { SecondarySidebarTrigger } from "@/app/_components/secondary-sidebar";
 
 export function Header({ title }: { title?: string }) {
   return (
-    <header className="flex shrink-0 items-center gap-2 transition-[width,height] ease-linear py-5 px-7 justify-between border-b h-[4.25rem]">
+    <header className="flex  dark:stroke-foreground shrink-0 items-center gap-2 transition-[width,height] ease-linear py-5 px-7 justify-between border-b h-[4.25rem]">
       <div className="flex items-center gap-2">
         <div className="flex gap-2 items-center">
           <PrimarySidebarTrigger />

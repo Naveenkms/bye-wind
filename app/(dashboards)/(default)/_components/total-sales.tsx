@@ -1,6 +1,14 @@
 "use client";
 
-import { Label, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts";
+import * as React from "react";
+import {
+  Label,
+  Pie,
+  PieChart,
+  PolarRadiusAxis,
+  RadialBar,
+  RadialBarChart,
+} from "recharts";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -8,92 +16,107 @@ import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-//   ChartLegend,
-//   ChartLegendContent,
+  //   ChartLegend,
+  //   ChartLegendContent,
 } from "@/components/ui/chart";
 
 export const description = "A radial chart with stacked sections";
 
-const chartData = [{ month: "january", desktop: 1260, mobile: 570 }];
+const chartData = [
+  { category: "direct", revenue: 300.56, fill: "#1f2937" },
+  { category: "affiliate", revenue: 135.18, fill: "#86efac" },
+  { category: "sponsored", revenue: 154.02, fill: "#8b5cf6" },
+  { category: "email", revenue: 48.96, fill: "#7dd3fc" },
+];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "var(--chart-1)",
+  revenue: {
+    label: "Revenue",
   },
-  mobile: {
-    label: "Mobile",
-    color: "var(--chart-2)",
+  direct: {
+    label: "Direct",
+    color: "var(--foreground)",
+  },
+  affiliate: {
+    label: "Affiliate",
+    color: "var(--chart-4)",
+  },
+  sponsored: {
+    label: "Sponsored",
+    color: "var(--chart-5)",
+  },
+  email: {
+    label: "E-mail",
+    color: "var(--chart-6)",
   },
 } satisfies ChartConfig;
 
 export function TotalSales() {
-  const totalVisitors = chartData[0].desktop + chartData[0].mobile;
+  const totalRevenue = React.useMemo(() => {
+    return chartData.reduce((acc, curr) => acc + curr.revenue, 0);
+  }, []);
+
+  const largestSegmentPercentage = React.useMemo(() => {
+    const largest = Math.max(...chartData.map((item) => item.revenue));
+    return ((largest / totalRevenue) * 100).toFixed(1);
+  }, [totalRevenue]);
 
   return (
-    <Card className="gap-4">
+    <Card className="gap-4 flex-1 @3xl/main:flex-1/4">
       <CardHeader>
         <CardTitle>Total Sales</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="gap-4 flex-col">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square w-full max-w-[250px]"
+          className="mx-auto aspect-square max-h-[140px] w-[140px]"
         >
-          <RadialBarChart
-            data={chartData}
-            endAngle={180}
-            innerRadius={80}
-            outerRadius={130}
-          >
+          <PieChart>
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
-            <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
-              <Label
-                content={({ viewBox }) => {
-                  if (viewBox && "cx" in viewBox && "cy" in viewBox) {
-                    return (
-                      <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle">
-                        <tspan
-                          x={viewBox.cx}
-                          y={(viewBox.cy || 0) - 16}
-                          className="fill-foreground text-2xl font-bold"
-                        >
-                          {totalVisitors.toLocaleString()}
-                        </tspan>
-                        <tspan
-                          x={viewBox.cx}
-                          y={(viewBox.cy || 0) + 4}
-                          className="fill-muted-foreground"
-                        >
-                          Visitors
-                        </tspan>
-                      </text>
-                    );
-                  }
-                }}
-              />
-            </PolarRadiusAxis>
-            {/* <ChartLegend content={<ChartLegendContent />} /> */}
-
-            <RadialBar
-              dataKey="desktop"
-              stackId="a"
-              cornerRadius={5}
-              fill="var(--color-desktop)"
-              className="stroke-transparent stroke-2"
+            <Pie
+              data={chartData}
+              dataKey="revenue"
+              nameKey="category"
+              innerRadius={40}
+              outerRadius="100%"
+              strokeWidth={5}
+              paddingAngle={6}
             />
-            <RadialBar
-              dataKey="mobile"
-              fill="var(--color-mobile)"
-              stackId="a"
-              cornerRadius={5}
-              className="stroke-transparent stroke-2"
-            />
-          </RadialBarChart>
+          </PieChart>
         </ChartContainer>
+        <div className="space-y-3 text-xs w-full">
+          <div className="h-[1.375rem] flex items-center justify-center gap-4 md:justify-between">
+            <div className="pl-1 flex items-center gap-[5px]">
+              <div className="bg-foreground size-1.5 rounded-full" />
+              <p>Direct</p>
+            </div>
+            <p>$300.56</p>
+          </div>
+          <div className="h-[1.375rem] flex items-center justify-center gap-4 md:justify-between">
+            <div className="pl-1 flex items-center gap-[5px]">
+              <div className="bg-[var(--chart-4)] size-1.5 rounded-full" />
+              <p>Affilliate</p>
+            </div>
+            <p>$135.18</p>
+          </div>
+          <div className="h-[1.375rem] flex items-center justify-center gap-4 md:justify-between">
+            <div className="pl-1 flex items-center gap-[5px]">
+              <div className="bg-[var(--chart-5)] size-1.5 rounded-full" />
+              <p>Sponsored</p>
+            </div>
+            <p>$154.02</p>
+          </div>
+          <div className="h-[1.375rem] flex items-center justify-center gap-4 md:justify-between">
+            <div className="pl-1 flex items-center gap-[5px]">
+              <div className="bg-[var(--chart-6)] size-1.5 rounded-full" />
+              <p>E-mail</p>
+            </div>
+            <p>$48.96</p>
+          </div>
+        </div>
       </CardContent>
     </Card>
   );
