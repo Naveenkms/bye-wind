@@ -34,8 +34,8 @@ const data = {
       icon: Bag,
       items: [
         {
-          title: "History",
-          url: "#",
+          title: "Orders",
+          url: "/dashboards/e-commerce/order-list",
         },
         {
           title: "Starred",

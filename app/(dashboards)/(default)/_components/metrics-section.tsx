@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { TrendingDownIcon } from "@/components/icons/trending-down-icon";
 import { TrendingUpIcon } from "@/components/icons/trending-up-icon";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -17,18 +19,20 @@ export function MetricsSection() {
           </div>
         </CardContent>
       </Card>
-      <Card>
-        <CardHeader>
-          <CardTitle>Orders</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="font-semibold text-2xl">1,219</div>
-          <div className="flex items-center gap-1 text-xs">
-            <span>-0.03%</span>
-            <TrendingDownIcon />
-          </div>
-        </CardContent>
-      </Card>
+      <Link href="/dashboards/e-commerce/order-list">
+        <Card>
+          <CardHeader>
+            <CardTitle>Orders</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="font-semibold text-2xl">1,219</div>
+            <div className="flex items-center gap-1 text-xs">
+              <span>-0.03%</span>
+              <TrendingDownIcon />
+            </div>
+          </CardContent>
+        </Card>
+      </Link>
       <Card>
         <CardHeader>
           <CardTitle>Revenue</CardTitle>

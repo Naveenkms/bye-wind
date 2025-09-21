@@ -1,6 +1,6 @@
 "use client";
 
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
+import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -11,21 +11,21 @@ import {
 } from "@/components/ui/chart";
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: "Jan", currentWeek: 12, previousWeek: 8 },
+  { month: "Feb", currentWeek: 10, previousWeek: 15 },
+  { month: "Mar", currentWeek: 8, previousWeek: 18 },
+  { month: "Apr", currentWeek: 15, previousWeek: 16 },
+  { month: "May", currentWeek: 18, previousWeek: 12 },
+  { month: "Jun", currentWeek: 20, previousWeek: 10 },
 ];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
+  previousWeek: {
+    label: "Previous Week",
     color: "var(--chart-1)",
   },
-  mobile: {
-    label: "Mobile",
+  currentWeek: {
+    label: "Current Week",
     color: "var(--chart-3)",
   },
 } satisfies ChartConfig;
@@ -54,15 +54,15 @@ export function RevenueChart() {
       <CardContent className="flex-1">
         <ChartContainer
           config={chartConfig}
-          className="min-[7.5rem] h-[7.5rem] w-full"
+          className="min-[14.5rem] h-[14.5rem] w-full"
         >
           <LineChart
             accessibilityLayer
             data={chartData}
-            margin={{
-              left: 12,
-              right: 12,
-            }}
+            // margin={{
+            //   left: 12,
+            //   right: 12,
+            // }}
           >
             <CartesianGrid vertical={false} />
             <XAxis
@@ -70,21 +70,29 @@ export function RevenueChart() {
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 3)}
+            />
+
+            <YAxis
+              tickLine={false}
+              axisLine={false}
+              tickMargin={8}
+              tickFormatter={(value) =>  value === 0 ? "0" : `${value}M`}
+              domain={[0, 30]}
             />
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
             <Line
-              dataKey="desktop"
+              dataKey="currentWeek"
               type="natural"
-              stroke="var(--color-desktop)"
-              strokeWidth={2}
+              stroke="var(--color-currentWeek)"
+              strokeWidth={4}
+              // strokeDasharray="5 5"
               dot={false}
             />
             <Line
-              dataKey="mobile"
+              dataKey="previousWeek"
               type="natural"
-              stroke="var(--color-mobile)"
-              strokeWidth={2}
+              stroke="var(--color-previousWeek)"
+              strokeWidth={4}
               dot={false}
             />
           </LineChart>

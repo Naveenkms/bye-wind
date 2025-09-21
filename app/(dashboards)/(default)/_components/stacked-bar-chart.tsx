@@ -19,22 +19,22 @@ import {
 export const description = "A stacked bar chart with a legend";
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: "January", projections: 16, actuals: 4 },
+  { month: "February", projections: 19, actuals: 6 },
+  { month: "March", projections: 17, actuals: 4 },
+  { month: "April", projections: 22, actuals: 6 },
+  { month: "May", projections: 14, actuals: 4 },
+  { month: "June", projections: 19, actuals: 6 },
 ];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
+  projections: {
+    label: "Actuals",
     color: "var(--chart-1)",
   },
-  mobile: {
-    label: "Mobile",
-    color: "var(--chart-1)",
+  actuals: {
+    label: "Projections",
+    color: "var(--chart-2)",
   },
 } satisfies ChartConfig;
 
@@ -49,7 +49,11 @@ export function StackedBarChart() {
           config={chartConfig}
           className="min-h-[10.5rem] h-[10.5rem] w-full"
         >
-          <BarChart accessibilityLayer data={chartData}>
+          <BarChart
+            accessibilityLayer
+            data={chartData}
+            maxBarSize={20}
+          >
             <CartesianGrid vertical={false} />
             <XAxis
               dataKey="month"
@@ -58,19 +62,25 @@ export function StackedBarChart() {
               axisLine={false}
               tickFormatter={(value) => value.slice(0, 3)}
             />
-            <YAxis />
+            <YAxis
+              tickLine={false}
+              axisLine={false}
+              tickMargin={10}
+              domain={[0, 30]}
+              ticks={[0, 10, 20, 30]}
+              tickFormatter={(value) => (value === 0 ? "0" : `${value}M`)}
+            />{" "}
             <ChartTooltip content={<ChartTooltipContent hideLabel />} />
             <Bar
-              dataKey="desktop"
+              dataKey="projections"
               stackId="a"
-              fill="var(--color-desktop)"
+              fill="var(--color-projections)"
               radius={[0, 0, 4, 4]}
             />
             <Bar
-              dataKey="mobile"
+              dataKey="actuals"
               stackId="a"
-              opacity="50%"
-              fill="var(--color-mobile)"
+              fill="var(--color-actuals)"
               radius={[4, 4, 0, 0]}
             />
           </BarChart>
