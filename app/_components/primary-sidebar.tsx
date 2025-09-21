@@ -8,7 +8,6 @@ import { NavPages } from "@/app/_components/nav-pages";
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
 } from "@/components/ui/sidebar";
 import { NavFavoritesAndRecentsTab } from "./nav-favorites-and-recents-tab";
@@ -115,7 +114,6 @@ export function PrimarySidebar({ ...props }: React.ComponentProps<typeof Sidebar
         />
         <NavPages pages={data.pages} />
       </SidebarContent>
-      <SidebarFooter>{/* <NavUser user={data.user} /> */}</SidebarFooter>
     </Sidebar>
   );
 }
