@@ -1,7 +1,6 @@
 # Bye-Wind
 
-A modern, production-ready Next.js dashboard template featuring TypeScript, Radix UI, Tailwind CSS, Playwright, and more.
-
+A Dashboard app with two pages built for assignment submission. Responsive on any screen, have dark mode. Built using Next.js, React 19, ShadCN UI and TailwindCSS ensuring perfomance, reusability and  scalability.
 ## �️ Tech Stack
 
 - **React 19** — UI library
