@@ -22,7 +22,21 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { PlusIcon } from "@/components/icons/plus-icon";
+import { SortIcon } from "@/components/icons/sort-icon";
+import { ArrowUpAndDown } from "@/components/icons/arrow-up-and-down";
+import { SearchInput } from "@/components/search-input";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+import { ChevronRight } from "@/components/icons/chevron-right";
+import { ChevronLeft } from "@/components/icons/chevron-left";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -58,24 +72,46 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      <div className="flex items-center py-4">
-        <Input
-          placeholder="Filter emails..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+      <div className="mb-4 p-2 h-11 flex items-center justify-between bg-primary-light dark:bg-background/5 rounded-lg">
+        <div className="flex items-center gap-2">
+          <Button variant="ghost" size="icon">
+            <PlusIcon className="size-5" />
+          </Button>
+          <Button
+            onClick={() => {
+              table
+                .getColumn("orderId")
+                ?.toggleSorting(
+                  table.getColumn("orderId")?.getIsSorted() === "asc"
+                );
+            }}
+            variant="ghost"
+            size="icon"
+          >
+            <SortIcon className="size-5" />
+          </Button>
+          <Button variant="ghost" size="icon">
+            <ArrowUpAndDown className="size-5" />
+          </Button>
+        </div>
+        <SearchInput
+          value={(table.getColumn("orderId")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
+            table.getColumn("orderId")?.setFilterValue(event.target.value)
           }
-          className="max-w-sm"
         />
       </div>
-      <div className="overflow-hidden rounded-md border">
+      <div className="overflow-hidden">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead
+                      key={header.id}
+                      className="first:px-1 py-0 h-10 last:pr-1"
+                    >
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -88,15 +124,19 @@ export function DataTable<TData, TValue>({
               </TableRow>
             ))}
           </TableHeader>
-          <TableBody>
+          <TableBody className="[&_tr:last-child]:border-b">
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
+                  className="border-b border-foreground/5 hover:bg-primary-light"
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell
+                      key={cell.id}
+                      className="first:px-1 py-0 h-10 last:pr-1"
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
@@ -118,24 +158,41 @@ export function DataTable<TData, TValue>({
           </TableBody>
         </Table>
       </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          Previous
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          Next
-        </Button>
-      </div>
+        <Pagination className="py-3 justify-end">
+          <PaginationContent>
+            <PaginationItem>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => table.previousPage()}
+                disabled={!table.getCanPreviousPage()}
+              >
+                <ChevronLeft className="size-5" />
+              </Button>{" "}
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink href="">1</PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink href="" isActive>
+                2
+              </PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink href="">3</PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => table.nextPage()}
+                disabled={!table.getCanNextPage()}
+              >
+                <ChevronRight className="size-5" />
+              </Button>{" "}
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
     </div>
   );
 }
